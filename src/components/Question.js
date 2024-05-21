@@ -1,40 +1,27 @@
 import { LitElement, html } from "lit";
 
-const objeto = {
-    title: "¿Que nivel de calidad estas buscando?",
-    preguntas: [
-        "calidad optima",
-        "BBB",
-        "no importa la calidad"
-    ]
-}
-
-const generar = ({ preguntas }) => {
-    let res = "";
-    
-    for (let i = 0; i < preguntas.length; ++i) {
-        const pregunta = preguntas[i];
-        res += `
-            <button>${pregunta}<button>
-        `
-    }
-    return res;
-}
-
 export default class Question extends LitElement {
-    constructor() {
-        super();
-    }
-    content = html`
-        <div>
-            <h2>${objeto.title}</h2>
-            ${generar(objeto)}
-        </div>
-    `
+  static properties = {
+    title: { type: String },
+    questionData: { type: Array },
+  };
+  constructor() {
+    super();
+    this.title = {};
+    this.questionData = {};
+  }
+  generar(preguntas) {
+    return preguntas.map((pregunta) => html`<button>${pregunta}</button>`);
+  }
 
-    render() {
-        return this.content;
-    }
+  render() {
+    return html`
+      <div>
+        <h2>${this.questionData.title}</h2>
+        ${this.generar(this.questionData.questions)}
+      </div>
+    `;
+  }
 }
 
-customElements.define("question-element", Question)
+customElements.define("question-element", Question);
