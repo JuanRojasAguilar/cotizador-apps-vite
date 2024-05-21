@@ -1,8 +1,13 @@
 import { LitElement, html, css } from "lit";
 
 export default class Nav extends LitElement {
+    static properties = {
+        _pageCounter: { state: true },
+    }
+
     constructor() {
         super();
+        this._pagecounter = 1;
     }
 
     static get styles() {
@@ -16,9 +21,6 @@ export default class Nav extends LitElement {
                 justify-content: space-between;
                 font-size: 1.2rem;
                 height: 40px;
-            }
-
-            .nav-container *:hover {
             }
 
             .back-button {
@@ -39,11 +41,16 @@ export default class Nav extends LitElement {
         `
     }
 
+    nextPage(e) {
+        e.preventDefault();
+        this._pagecounter++;
+    }
+
     render() {
         return html`
             <div class="nav-container">
-                <button class="back-button">&#11013; regresar</button>
-                <p>10/10</p>
+                <button class="back-button" onClick=${(e) => this.nextPage(e)}>&#11013; regresar</button>
+                <p>${this._pagecounter}/10</p>
                 <p class="accumulated-value">5.000.000</p>
             </div>
         `
