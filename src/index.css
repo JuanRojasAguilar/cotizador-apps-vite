@@ -3,3 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#app {
+    padding-top: 40px;
+    background-color: grey;
+    min-height: 200vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+body {font-size: 62.5%;}

@@ -12,14 +12,19 @@ export default class Question extends LitElement {
     this.questionData = {};
   }
 
+  /**
+   * 
+   * @param {Object} data 
+   * @returns {HTMLTemplateElement}
+   */
   generar(data) {
-    return data.questions.map((pregunta) => html`
+    return data.questions?.map((pregunta) => html`
       <button 
         class="choise-btn" 
         value=""
       >
         ${pregunta}
-      </button>`);
+      </button>`)
   }
 
   static get styles() {
@@ -54,9 +59,9 @@ export default class Question extends LitElement {
   render() {
     return html`
       <div class="question-container">
-        <h2 class="question-title">${this.questionData.title}</h2>
+        <h2 class="question-title">$asdf</h2>
         <div class="button-container">
-          ${this.generar(this.questionData)}
+          asdf
         </div>
       </div>
     `;
