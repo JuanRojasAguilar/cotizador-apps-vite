@@ -4,12 +4,12 @@ import Question from "./components/Question";
 const questions = [
   {
     title: "testeito",
-    questions: ["test1", "test2"],
+    questions: ["wqw", "qqq", "www"]
   },
   {
     title: "testeito2",
     questions: ["wqw", "qqq", "www"]
-  }
+  },
 ];
 
 class App extends LitElement {
@@ -17,8 +17,8 @@ class App extends LitElement {
     super();
   }
 
-  renderQuestions() {
-    return questions.map((entry) => html`
+  *renderQuestions() {
+    yield questions.map((entry) => html`
       <question-element
         .questionData=${entry}
       ></question-element>
@@ -31,7 +31,10 @@ class App extends LitElement {
       #web-app {
         background-color: grey;
         min-height: 100vh;
-
+        min-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     `
   }

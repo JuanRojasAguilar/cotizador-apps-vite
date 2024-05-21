@@ -12,32 +12,51 @@ export default class Question extends LitElement {
     this.questionData = {};
   }
 
-  generar(preguntas) {
-    return preguntas.map((pregunta) => html`<button class="choise-btn">${pregunta}</button>`);
+  generar(data) {
+    return data.questions.map((pregunta) => html`
+      <button 
+        class="choise-btn" 
+        value=""
+      >
+        ${pregunta}
+      </button>`);
   }
 
   static get styles() {
     return css`
+      .question-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+      }
+
+      .question-title {
+        margin-top: 0;
+        text-align: center;
+      }
+
       .button-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 16px;
+        width: 100%;
+        justify-content: space-around;
       }
 
       .choise-btn {
-        width: 200px;
         height: 80px;
-
+        min-width: 30%;
       }
     `
   }
 
   render() {
     return html`
-      <div>
-        <h2>${this.questionData.title}</h2>
+      <div class="question-container">
+        <h2 class="question-title">${this.questionData.title}</h2>
         <div class="button-container">
-          ${this.generar(this.questionData.questions)}
+          ${this.generar(this.questionData)}
         </div>
       </div>
     `;
