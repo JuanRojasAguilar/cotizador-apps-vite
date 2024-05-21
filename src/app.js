@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit";
+import { LitElement, html, css } from "lit";
 import Question from "./components/Question";
 
 const questions = [
@@ -26,12 +26,22 @@ class App extends LitElement {
     `)
   }
 
+  static get styles() {
+    return css`
+      #web-app {
+        background-color: grey;
+        min-height: 100vh;
+
+      }
+    `
+  }
+
   render() {
     // Esto es un ejemplo de como escribir el js
     return html`
-      <fragment>
+      <div id="web-app">
         ${this.renderQuestions()}
-      </fragment>
+      </div>
     `;
   }
 }
