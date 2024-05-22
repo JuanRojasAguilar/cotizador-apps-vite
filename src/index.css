@@ -6,13 +6,17 @@
 
 #app {
     padding-top: 40px;
-    background-color: grey;
-    min-height: 200vh;
+    background-color: #3d3935;
+    min-height: 100vh;
     min-width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
 }
 
-body {font-size: 62.5%;}
+body {
+  font-size: 62.5%;
+  color: whitesmoke;
+}

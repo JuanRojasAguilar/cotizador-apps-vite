@@ -33,12 +33,16 @@ export default class Question extends LitElement {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         width: 80vw;
       }
 
       .question-title {
+        font-size: 2.4rem;
         margin-top: 0;
+        margin-bottom: 40px;
         text-align: center;
+        
       }
 
       .button-container {
@@ -59,9 +63,9 @@ export default class Question extends LitElement {
   render() {
     return html`
       <div class="question-container">
-        <h2 class="question-title">$asdf</h2>
+        <h2 class="question-title">Que nivel de calidad estas buscando?</h2>
         <div class="button-container">
-          asdf
+          Calidad optima
         </div>
       </div>
     `;
